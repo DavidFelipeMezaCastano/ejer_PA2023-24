@@ -35,9 +35,9 @@ print("Rangos de precios:")
 list(map(lambda rango: print(f"{rango[0]}: Mínimo = {rango[1]}, Máximo = {rango[2]}"), rangos))
 # Variación 1: Rango de precios (mínimo y máximo)
 
-prom_posc = list(map(lambda col: np.mean(np.argsort(col)), todos.T))
-ind_mejor_prom = int(np.argmax(np.array(prom_posc)))
-# Variación 2: Promedio de la mejor posición de cada histórico
+indices_mejor_prom = list(map(lambda col: np.argsort(col), todos.T))
+ind_mejor_prom = int(np.argmax(np.array(list(map(np.mean, indices_mejor_prom)))))
+# Variación 2: Obtengo el índice de mejor posición de cada histórico
 
 nombres = list(map(lambda lin: lin['nombre'], datos))
 # Convierto el objeto map de nombres a una lista, esta solución surgió a causa de un error que presentó de 'índice fuera de rango'
