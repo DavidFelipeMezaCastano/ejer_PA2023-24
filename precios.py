@@ -35,7 +35,7 @@ print("Rangos de precios:")
 list(map(lambda rango: print(f"{rango[0]}: Mínimo = {rango[1]}, Máximo = {rango[2]}"), rangos))
 # Variación 1: Rango de precios (mínimo y máximo)
 
-prom_posc = list(map(lambda precio: np.mean(np.argsort(precio)), todos))
+prom_posc = list(map(lambda col: np.mean(np.argsort(col)), todos.T))
 ind_mejor_prom = int(np.argmax(np.array(prom_posc)))
 # Variación 2: Promedio de la mejor posición de cada histórico
 
